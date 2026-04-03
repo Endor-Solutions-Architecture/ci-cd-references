@@ -15,10 +15,10 @@ jobs:
         python-version: [3.7, 3.8, 3.9]
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
 
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@e9aba2c848f5ebd159c070c61ea2c4e2b122355e # v2.3.4
       with:
         python-version: ${{ matrix.python-version }}
 
@@ -29,7 +29,7 @@ jobs:
 
     - name: Endor Labs Watch
       if: ${{ github.event_name == 'push' || github.event_name == 'workflow_dispatch' }}
-      uses: endorlabs/github-action@main
+      uses: endorlabs/github-action@02231267f2d7d3be21f10662fdd39fba143d4bda # v1.1.9
       with:
         namespace: "example" # Update with your Endor Labs namespace
         scan_summary_output_type: "table"
@@ -39,7 +39,7 @@ jobs:
         additional_args: "--enable=git,analytics,secrets"
     - name: Endor Labs Scan PR to Default Branch
       if: github.event_name == 'pull_request'
-      uses: endorlabs/github-action@main
+      uses: endorlabs/github-action@02231267f2d7d3be21f10662fdd39fba143d4bda # v1.1.9
       with:
         namespace: "example" # Update with your Endor Labs namespace
         scan_summary_output_type: "table"
