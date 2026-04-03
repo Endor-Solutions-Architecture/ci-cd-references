@@ -8,15 +8,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
       - name: Setup Java
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@17f84c3641ba7b8f6deff6309fc4c864478f5d62 # v3.14.1
         with:
           java-version: '17'
           distribution: 'temurin'
       - name: Compile Package
         run: mvn clean install
       - name: Scan with Endor Labs
-        uses: endorlabs/github-action@main
+        uses: endorlabs/github-action@02231267f2d7d3be21f10662fdd39fba143d4bda # v1.1.9
         with:
           namespace: "example" # Update with your Endor Labs namespace  

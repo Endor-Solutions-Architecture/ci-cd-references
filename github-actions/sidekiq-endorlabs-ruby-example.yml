@@ -14,7 +14,7 @@ jobs:
       # actions: read # Only needed to upload findings to GitHub
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
       - name: Set up Ruby
         uses: ruby/setup-ruby@ec02537da5712d66d4d50a0f33b7eb52773b5ed1
         with:
@@ -23,7 +23,7 @@ jobs:
         run: bundle install
       - name: Endor Labs Watch
         if: ${{ github.event_name == 'push' || github.event_name == 'workflow_dispatch' }}
-        uses: endorlabs/github-action@main
+        uses: endorlabs/github-action@02231267f2d7d3be21f10662fdd39fba143d4bda # v1.1.9
         with:
           namespace: "example" # Update with your Endor Labs namespace
           scan_summary_output_type: "table"
@@ -33,7 +33,7 @@ jobs:
           additional_args: "--enable=git,analytics,secrets"
       - name: Endor Labs Scan PR to Default Branch
         if: github.event_name == 'pull_request'
-        uses: endorlabs/github-action@main
+        uses: endorlabs/github-action@02231267f2d7d3be21f10662fdd39fba143d4bda # v1.1.9
         with:
           namespace: "example" # Update with your Endor Labs namespace
           scan_summary_output_type: "table"
